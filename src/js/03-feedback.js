@@ -7,7 +7,7 @@ import { loadFromLS, saveToLS } from "./helper";
 
 form.addEventListener('input', throttle(onFormData, 500));
 
-const formData = {};
+let formData = {};
 
 function onFormData(e) {
   formData[e.target.name] = e.target.value;
@@ -36,21 +36,21 @@ form.addEventListener('submit', e => {
     console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
     localStorage.removeItem("feedback-form-state")
     form.reset()
-
+  formData = {};
     
    
 });
 (function dataFromLocalStorage() {
   if (noUpdate) {
-    email.value = noUpdate.email;
-    message.value = noUpdate.message;
+    email.value = noUpdate.email || "";
+    message.value = noUpdate.message || "";
   }
 })();
-function dataFromLocalStorage() {
-  if (input.value === undefined) {
-    input.value = "";
-  }
-}
+// function dataFromLocalStorage() {
+//   if (input.value === undefined) {
+//     input.value = "";
+//   }
+// }
 // function dataFromLocalStorage() {
 //   if (email.value === '' || message.value === '') {
 //     alert('Потрібно заповнити поле, а то ментор свариться');
