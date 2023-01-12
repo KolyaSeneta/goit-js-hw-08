@@ -46,3 +46,14 @@ form.addEventListener('submit', e => {
     message.value = noUpdate.message;
   }
 })();
+function dataFromLocalStorage() {
+  if (input.value === undefined) {
+    input.value = "";
+  }
+}
+// function dataFromLocalStorage() {
+//   if (email.value === '' || message.value === '') {
+//     alert('Потрібно заповнити поле, а то ментор свариться');
+//     return;
+//   }
+// }
