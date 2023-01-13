@@ -7,7 +7,8 @@ import { loadFromLS, saveToLS } from "./helper";
 
 form.addEventListener('input', throttle(onFormData, 500));
 
-let formData = {};
+let formData = loadFromLS('feedback-form-state') || {};
+
 
 function onFormData(e) {
   formData[e.target.name] = e.target.value;
@@ -46,14 +47,3 @@ form.addEventListener('submit', e => {
     message.value = noUpdate.message || "";
   }
 })();
-// function dataFromLocalStorage() {
-//   if (input.value === undefined) {
-//     input.value = "";
-//   }
-// }
-// function dataFromLocalStorage() {
-//   if (email.value === '' || message.value === '') {
-//     alert('Потрібно заповнити поле, а то ментор свариться');
-//     return;
-//   }
-// }
